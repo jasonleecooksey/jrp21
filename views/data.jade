@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+    
+  section.get
+    h3 Get data
+    div
+      for item in items
+        article.item
+          div Title: #{item.title}
+          div Content: #{item.content}
+          div Author: #{item.author}
+          div 
+            a(href="deletebtn/#{item._id}") DELETE

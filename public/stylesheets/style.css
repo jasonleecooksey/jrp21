@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+section {
+  margin:20px;
+  padding:10px;
+}
+
+.insert {
+  background-color: #551111;
+  color: #fff;
+}
+
+.item {
+  margin:10px;
+}
