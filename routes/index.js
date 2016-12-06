@@ -20,12 +20,6 @@ var UserData = mongoose.model('UserData', userDataSchema);
 // insert (CRUD)
 router.post('/insert', function(req,res,next){
 
-  // var item = {
-  //   title : "To Kill A Mockingbird",
-  //   content : "This book was banned because it had bad words",
-  //   author : "Harper Lee"
-  // };
-
   var item = {
     title : req.body.title,
     content : req.body.content,
@@ -83,6 +77,16 @@ router.post('/update', function(req,res,next){
     doc.save();
   });
   res.redirect('/');
+});
+
+/* GET new page */
+router.get('/new', function(req, res, next) {
+  res.render('new', { items: {} });
+});
+
+/* GET delete page */
+router.get('/deletedoc', function(req, res, next) {
+  res.render('deletedoc', { items: {} });
 });
 
 /* GET home page. */

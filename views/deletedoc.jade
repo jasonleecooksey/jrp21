@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  section.delete
+    h3 Delete data
+    form(action="/delete", method="post")
+      div.input
+        label(for="id") ID
+        input(type="text", id="id", name="id")
+      button(type="submit") DELETE 

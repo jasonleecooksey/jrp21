@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  section.insert
+    h3 Insert data 
+    form(action="/insert", method="post")
+      div.input
+        label(for="title") Title
+        input(type="text", id="title", name="title")
+      div.input
+        label(for="content") Content
+        input(type="text", id="content", name="content")
+      div.input
+        label(for="author") Author
+        input(type="text", id="author", name="author")
+      button(type="submit") INSERT 
