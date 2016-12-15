@@ -89,6 +89,22 @@ router.get('/deletedoc', function(req, res, next) {
   res.render('deletedoc', { items: {} });
 });
 
+/* GET find page */
+router.get('/find', function(req, res, next) {
+  UserData.find()
+    .then(function(doc){
+      res.render('find', {items: doc});
+    });
+});
+
+router.post('/finddoc', function(req,res,next){
+  var search = req.body.search;
+  UserData.find().or([{title: search}, {content: search}]) // this allows us to find the value in multiple fields
+    .then(function(doc){
+      res.render('find', {items: doc});
+    });
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { items: {} });
