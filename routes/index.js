@@ -28,8 +28,18 @@ router.post('/insert', function(req,res,next){
 
   var data = new UserData(item);
 
-  data.save();
-  res.redirect('/');
+  // this saves and THEN finds the record id
+  // just created and then finds
+  // that record
+  data.save(function(err,record){
+    var newid = record._id;
+    UserData.find({_id:newid})
+      .then(function(doc){
+        res.render('data', {items: doc});
+      });
+  });
+
+  //res.redirect('/');
 
 });
 
