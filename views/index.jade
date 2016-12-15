@@ -4,32 +4,14 @@ block content
   h1= title
   p Welcome to #{title}
 
-  section.get
-    h3 Get data
-    a(href="/get-data") LOAD DATA 
-    div
-      for item in items
-        article.item
-          div Title: #{item.title}
-          div Content: #{item.content}
-          div Author: #{item.author}
-          div ID: #{item._id}
-      
-  section.update
-    h3 Update data 
-    form(action="/update", method="post")
-      div.input
-        label(for="id") ID
-        input(type="text", id="id", name="id")
-      div.input
-        label(for="title") Title
-        input(type="text", id="title", name="title")
-      div.input
-        label(for="content") Content
-        input(type="text", id="content", name="content")
-      div.input
-        label(for="author") Author
-        input(type="text", id="author", name="author")
-      button(type="submit") UPDATE   
-  
-  
+  //- section.get
+  //-   h3 Get data
+  //-   a(href="/get-data") LOAD DATA 
+  //-   div
+  //-     for item in items
+  //-       article.item
+  //-         div Title: #{item.title}
+  //-         div Content: #{item.content}
+  //-         div Author: #{item.author}
+  //-         div ID: #{item._id}
+  p #{somecontent}

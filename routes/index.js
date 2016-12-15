@@ -33,18 +33,11 @@ router.post('/insert', function(req,res,next){
 
 });
 
+// get (CRUD)
 router.get('/get-data', function(req,res,next){
   UserData.find()
     .then(function(doc){
       res.render('index', {items: doc});
-    });
-});
-
-// get (CRUD)
-router.get('/data', function(req,res,next){
-  UserData.find()
-    .then(function(doc){
-      res.render('data', {items: doc});
     });
 });
 
@@ -81,22 +74,28 @@ router.post('/update', function(req,res,next){
 
 /* GET new page */
 router.get('/new', function(req, res, next) {
-  res.render('new', { items: {} });
+  res.render('new', { items: {}, title : "Insert new data" });
+});
+
+/* GET update page */
+router.get('/update', function(req, res, next) {
+  res.render('update', { items: {}, title : "Update data"  });
 });
 
 /* GET delete page */
 router.get('/deletedoc', function(req, res, next) {
-  res.render('deletedoc', { items: {} });
+  res.render('deletedoc', { items: {}, title : "Delete data...must provide ID"   });
 });
 
 /* GET find page */
 router.get('/find', function(req, res, next) {
   UserData.find()
     .then(function(doc){
-      res.render('find', {items: doc});
+      res.render('find', {items: doc, title : "Search and list data" });
     });
 });
 
+/* POST find results */
 router.post('/finddoc', function(req,res,next){
   var search = req.body.search;
   UserData.find().or([{title: search}, {content: search}]) // this allows us to find the value in multiple fields
@@ -105,9 +104,17 @@ router.post('/finddoc', function(req,res,next){
     });
 });
 
+/* GET data page */
+router.get('/data', function(req,res,next){
+  UserData.find()
+    .then(function(doc){
+      res.render('data', {items: doc, title : "Get all data"  });
+    });
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { items: {} });
+  res.render('index', { title: "The Home Page", somecontent : "This site is the BEST. Probably."});
 });
 
 module.exports = router;

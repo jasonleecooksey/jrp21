@@ -2,11 +2,14 @@ extends layout
 
 block content
   h1= title
-  p Insert some data
-  
-  section.insert
-    h3 Insert data 
-    form(action="/insert", method="post")
+  p Welcome to #{title}
+
+  section.update
+    h3 Update data 
+    form(action="/update", method="post")
+      div.input
+        label(for="id") ID
+        input(type="text", id="id", name="id")
       div.input
         label(for="title") Title
         input(type="text", id="title", name="title")
@@ -16,4 +19,6 @@ block content
       div.input
         label(for="author") Author
         input(type="text", id="author", name="author")
-      button(type="submit") INSERT 
+      button(type="submit") UPDATE   
+  
+  
